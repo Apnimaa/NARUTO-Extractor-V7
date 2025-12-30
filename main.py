@@ -16,10 +16,17 @@ if __name__ == "__main__":
         plugins=plugins,
         workers=10000,
     )
-    async def main():
-        await bot.start()
-        bot_info = await bot.get_me()
-        LOGGER.info(f"<--- @{bot_info.username} Started --->")
-        await idle()
-    asyncio.get_event_loop().run_until_complete(main())
-    LOGGER.info("<--- Bot Stopped --->")
+import asyncio
+
+async def main():
+    await bot.start()
+    bot_info = await bot.get_me()
+    LOGGER.info(f"<--- @{bot_info.username} Started --->")
+    await idle()
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    finally:
+        LOGGER.info("<--- Bot Stopped --->")
+    
