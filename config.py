@@ -17,4 +17,25 @@ class Config(object):
     OWNER = "http://t.me/Priyansh230819"
     THUMB_URL = "https://i.ibb.co/zTPJFct8/photo-2025-04-25-12-55-01-7497233558289776672.jpg" #Replace by with your Thumb URL
     HOST = "https://drm-api-five.vercel.app"
+    
+from flask import Flask
+import threading
+import os
 
+# Flask app
+flask_app = Flask(__name__)
+
+@flask_app.route("/")
+def home():
+    return "😊 Lovely bot is live"
+
+# Flask run in background
+def run():
+    flask_app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000)),
+        debug=False
+    )
+
+# Start flask in background thread
+threading.Thread(target=run).start()
