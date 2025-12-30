@@ -1,4 +1,4 @@
-from getserver import getserver
+import getserver
 
 def connect_server():
     server = getserver()
@@ -6,4 +6,5 @@ def connect_server():
 
 if __name__ == "__main__":
     connect_server()
+
 
