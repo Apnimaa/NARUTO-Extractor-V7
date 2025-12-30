@@ -6,6 +6,7 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 LOGGER.info("Live log streaming to telegram.")
 plugins = dict(root="plugins")
+
 if __name__ == "__main__":
 bot = Client(
     "Master",
@@ -16,6 +17,7 @@ bot = Client(
     plugins=plugins,
     workers=8
 )
+    bot.run()
 
 # Main async function
 async def main():
