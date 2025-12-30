@@ -8,9 +8,6 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 LOGGER.info("Live log streaming to telegram.")
 
-# Plugins path
-plugins = dict(root="plugins")
-
 # Bot client (GLOBAL)
 bot = Client(
     "Master",
