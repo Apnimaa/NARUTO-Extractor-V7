@@ -18,12 +18,15 @@ if __name__ == "__main__":
         workers=8
     )
     bot.run()
-    
+
 async def main():
-        await bot.start()
-        bot_info = await bot.get_me()
-        LOGGER.info(f"<--- @{bot_info.username} Started --->")
-        await idle()
-    asyncio.get_event_loop().run_until_complete(main())
+    await bot.start()
+    bot_info = await bot.get_me()
+    LOGGER.info(f"<--- @{bot_info.username} started --->")
+    await idle()
+    await bot.stop()
     LOGGER.info("<--- Bot Stopped --->")
+
+if __name__ == "__main__":
+    asyncio.get_event_loop().run_until_complete(main())
     
